@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Drink Me!</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="app">
+            <h1>Drink Me!</h1>
+            <p>{{random}}</p>
+
+            <div v-for="drink in random.drinks">
+                <p>Drink name: {{ drink.strDrink }}</p>
+                <img :src="drink.strDrinkThumb">
+                <hr>
+                <div v-for="num in nums">
+                    <p>{{ drink[measurements[num]] }} <span v-if="drink[measurements[num]]">-</span> {{ drink[ingredients[num]] }}</p>
+                </div>
+                <p>{{ drink.strInstructions }}</p>
+            </div>
+<!-- 
+            <div v-for="drink in random">
+              
+                <div v-for="item in drink">
+
+                  
+                    <hr>
+                    <p>Drink name: {{ item.strDrink }}</p>
+                
+                    <hr>
+                    
+                    <div v-for="key in Object.keys(item)">
+                        <div v-if="key.includes('strIngredient') && item[key]">
+                            
+                            <p>{{ item.strMeasure1 }} - {{ item[key] }}</p>
+                            <p>I'm working!!</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <p>{{ item.strIngredient10 }}</p>
+                    <p>{{ item.strInstructions }}</p>
+                    
+                </div>
+            </div> -->
+        </div>
+        
+        <script src="https://unpkg.com/vue@2"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="site.js"></script>
+    </body>
+
+</html>
